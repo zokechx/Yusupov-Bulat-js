@@ -16,6 +16,6 @@ let sum = number1 + number2;
 
 // Вывод результата
 console.log("Сумма чисел: " + sum); // Сумма чисел: 22
-    </script>
+    <script>
 </body>
 </html>
