@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//вторая блок-схема
+//начало
+alert("Добро пожаловать! Давайте проверим ваше имя.");
+
+//ввод имени
+let userName = prompt("Пожалуйста, введите ваше имя:");
+
+console.log("Вы ввели: '" + userName + "'");
+
+//проверка: Имя пустое?
+if (userName === null || userName === "") {
+    console.log("❌ Имя пустое");
+    alert("Ошибка: вы не ввели имя!");
+}
+//проверка: Имя слишком короткое?
+else if (userName.length < 2) {
+    console.log("❌ Имя слишком короткое");
+    alert("Имя должно содержать минимум 2 символа!");
+}
+// Если имя прошло первые две проверки
+else {
+    console.log("✅ Имя принято: " + userName);
+    alert("Привет, " + userName + "!");
+    
+    // ПРОВЕРКА 3: Имя слишком длинное?
+    if (userName.length > 50) {
+        console.log("⚠️ Имя слишком длинное");
+        alert("Ваше имя очень длинное (" + userName.length + " символов)!");
+    }
+}
+
+// КОНЕЦ ПРОГРАММЫ
+console.log("стоп");
+</script>  
+</body>
+</html>
