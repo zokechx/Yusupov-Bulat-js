@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// Получаем число от пользователя
+let number = parseInt(prompt("Введите положительное целое число:"));
+
+// Проверяем, что введено корректное положительное число
+if (isNaN(number) || number <= 0) {
+    console.log("Пожалуйста, введите корректное положительное целое число.");
+} else {
+    console.log("Делители числа " + number + ":");
+    
+    // Находим и выводим все делители
+    for (let i = 1; i <= number; i++) {
+        if (number % i === 0) {
+            console.log(i);
+        }
+    }
+}
+</script>
+</body>
+</html>

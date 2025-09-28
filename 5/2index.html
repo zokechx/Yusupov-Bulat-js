@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сумма чисел</title>
+</head>
+<body>
+<script>
+// Пользователь вводит число N
+alert("введите целое число, которое будет больше 0")
+let N = parseInt(prompt("Введите число N:"));
+// Проверка на корректный ввод
+if (isNaN(N) || N < 1) {
+    console.log("Ошибка: введите целое число больше 0");
+
+} else {
+    let sum = 0;      // Переменная для суммы
+    let i = 1;        // Начинаем с 1
+    
+    // Цикл while: суммируем числа от 1 до N
+    while (i <= N) {
+        sum = sum + i;  // Добавляем текущее число к сумме
+        i++;            // Увеличиваем счетчик
+    }
+    
+    // Выводим результат в консоль
+    console.log("Сумма чисел от 1 до " + N + " равна: " + sum);
+}
+//стоп
+
+</script>
+</body>
+</html>
