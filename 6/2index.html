@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// Исходная матрица
+const matrix = [
+    [64, 362, 35, 786, 53],
+    [73, 87, 0, 80, 367],
+    [98, 457, 76, 21, 36],
+    [64, 1, 765, 534, 26],
+    [27, 852, 14, 98, 60]
+];
+
+// Алгоритм вычисления произведения элементов под четными индексами
+function calculateEvenIndexProduct(matrix) {
+    let A = 1;
+    let B = 0;
+    
+    // Проходим по всем строкам матрицы
+    for (let i = 0; i < matrix.length; i++) {
+        // Проходим по всем элементам строки
+        for (let j = 0; j < matrix[i].length; j++) {
+            // Проверяем, является ли индекс четным
+            if (j % 2 === 0) {
+                A *= matrix[i][j];
+                B++;
+                console.log(`Элемент [${i}][${j}] = ${matrix[i][j]}, произведение: ${A}`);
+            }
+        }
+    }
+    
+    console.log(`Всего элементов с четными индексами: ${B}`);
+    return A;
+}
+
+// Вызываем функцию и выводим результат
+const result = calculateEvenIndexProduct(matrix);
+console.log(`Произведение элементов под четными индексами: ${result}`);
+</script>
+</body>
+</html>

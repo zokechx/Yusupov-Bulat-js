@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+const names = ["Илон", "Павел", "Джефф", "Евгений", "Билл"];
+
+// Добавляем 3 имени с помощью prompt()
+for (let i = 0; i < 3; i++) {
+    const name = prompt(`Введите имя ${i + 1}:`);
+    if (name) {
+        names.push(name);
+    }
+}
+
+console.log("массив:", names);
+</script>
+</body>
+</html>
