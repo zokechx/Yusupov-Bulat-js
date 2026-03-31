@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14 Практика</title>
+</head>
+
+<body>
+
+    <p>Задание 1: «Счётчик-настройщик» (Работа с Input)
+        Цель: Научиться брать данные не только из текста, но и из полей ввода.
+        Суть: Добавь поле "input type="number" id="step" value="1".
+        Задача: Теперь при нажатии на «+» или «-» значение счётчика должно увеличиваться или уменьшаться не на 1, а на
+        число, которое введено в input.</p>
+
+
+
+    <hr>
+    <!-- Сам счётчик -->
+    <button id="plus">+</button>
+    <h1 id="counter">0</h1>
+    <button id="minus">-</button>
+    <input type="number" id="stepInput" value="2">
+
+    <body>
+        <script>
+            // Находим кнопки через document.querySelector
+            const plusButton = document.querySelector('#plus');
+            const minusButton = document.querySelector('#minus');
+
+            // Находим счётчик через document.querySelector
+            const counter = document.querySelector('#counter');
+
+            //Находим поле ввода шага
+            const stepInput = document.querySelector("#stepInput");
+
+            // Вешаем обработчик клика на сами кнопки
+            plusButton.onclick = () => {
+                counter.innerHTML = Number(counter.innerHTML) + Number(stepInput.value)
+            }
+
+            minusButton.onclick = () => {
+                counter.innerHTML = Number(counter.innerHTML) - Number(stepInput.value);
+            }
+
+        </script>
+        <hr>
+</html>
