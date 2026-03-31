@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>15 Практика</title>
+  <style>
+    #photo1, #photo2, #photo3 {
+      width: 300px;
+      height: 300px;
+      cursor: pointer;
+    }
+    /* Стили для модалки, чтобы она не была пустой */
+    .Modal img {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <p>Задача 2: «Галерея картинок» (Делегирование и атрибуты)
+Это научит тебя работать с данными внутри события.
+
+Задание: Выведи на страницу три маленькие картинки (превью). Создай одну модалку, внутри которой есть пустой тег .
+Условия:
+При клике на любую из картинок должна открываться модалка.
+Картинка внутри модалки должна менять свой src на тот, по которому кликнули.
+Подсказка: используй event.target, чтобы узнать, на какую именно картинку нажал пользователь.</p>
+  <hr>
+
+  <img id="photo1" src="https://img08.rl0.ru/afisha/e1500x-i/daily.afisha.ru/uploads/images/7/2b/72b0163d35a38e023416cef116783f4a.jpg">
+  <img id="photo2" src="https://resize.tripster.ru/1uwkuzjKaseLtQRZmtszBlGPOpY=/fit-in/1080x810/filters:no_upscale()/https://cdn.tripster.ru/photos/1a828b3c-6afc-400a-9ff4-b18d523b428b.jpg">
+  <img id="photo3" src="https://www.delfin-tour.ru/system/tours/15847/photos/1020x700/14919116548568535.jpg">
+
+  <dialog class="Modal">
+    <div class="dialog_content">
+      <!-- ПУСТОЙ ТЕГ IMG  -->
+      <img src="">
+      <button class="close_btn">Закрыть</button>
+    </div>
+  </dialog>
+
+  <script>
+    //обьявление переменных
+    const modal = document.querySelector('.Modal');
+    const modalImg = modal.querySelector('img');
+
+    document.addEventListener('click', (event) => {
+      // 1. Открытие через event.target
+      if (event.target.tagName === 'IMG') {
+        modalImg.src = event.target.src;
+        modal.showModal();
+      }
+
+      // 2. Закрытие через делегирование
+      if (event.target.classList.contains('close_btn') ) {
+        modal.close();
+      }
+    });
+  </script>
+</body>
+</html>

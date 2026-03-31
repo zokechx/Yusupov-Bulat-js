@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15 Практика</title>
+</head>
+
+<body>
+  <p>Задача 1: «Модалка-подтверждение» (Основы)
+    Представь, что пользователь хочет удалить аккаунт. Тебе нужно создать окно подтверждения.
+
+    Задание: Создай с нуля кнопку «Удалить профиль». При клике открывается модалка с текстом «Вы уверены?» и двумя
+    кнопками: «Отмена» и «Да, удалить».
+    Условия:
+    Кнопка «Отмена» должна просто закрывать окно.
+    Кнопка «Да, удалить» должна выводить в консоль фразу "Профиль удален" и закрывать окно.
+    Реализуй закрытие только по кнопкам (без клика вне области).
+  </p>
+  <hr>
+
+  <body>
+    <!-- Кнопка удаления профиля -->
+    <button id="DeleteProfile">Удалить профиль</button>
+
+    <!-- Сама модалка -->
+    <dialog id="Modal">
+      <!-- Контент модалки -->
+      <div class="dialog_content">
+        <h1>Вы уверены?</h1>
+
+        <button id="Delete">Да,удалить</button>
+        <button id="closeDialog">Отмена</button>
+      </div>
+    </dialog>
+
+    <style>
+      /* Чтобы контент занимал всё пространство */
+      .Modal {
+        border: none;
+        border-radius: 1rem;
+        padding: 0;
+      }
+
+      .dialog_content {
+        padding: 1.5rem;
+      }
+    </style>
+
+    <script>
+
+      // Находим элементы c id
+      const openDialogButton = document.querySelector('#DeleteProfile');
+      const ModalDialog = document.querySelector('#Modal');
+      const closeDialogButton = document.querySelector('#closeDialog');
+      const confirmDeleteButton = document.querySelector('#Delete')
+
+      // Чтобы модальное окно открывалось
+      openDialogButton.onclick = () => {
+        ModalDialog.showModal();
+      }
+
+      // Чтобы модальное окно закрывалось
+      closeDialogButton.onclick = () => {
+        ModalDialog.close();
+      }
+      confirmDeleteButton.onclick = () => {
+        (alert("Профиль удален ✅"), console.log('Профиль удален!'));
+        ModalDialog.close();
+      }
+    </script>
+
+  </body>
+
+</html>

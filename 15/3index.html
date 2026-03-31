@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Практика</title>
+</head>
+<body>
+<p>Задача 3: «Умная форма» (Сложные события)
+Закрепляем stopPropagation и работу с формами.
+
+Задание: Создай модалку с формой подписки (поле ввода Email и кнопка «Подписаться»).
+Условия:
+Реализуй закрытие при клике на «оверлей» (пустое место вокруг формы), используя твой метод с stopPropagation.
+Добавь проверку: если пользователь нажимает кнопку «Подписаться», а поле Email пустое — модалка не должна закрываться, а поле должно подсветиться красным.</p>
+<hr>
+ <button id="openForm" style="color: rgb(253, 0, 0); border-radius:2%;">Открыть подписку</button>
+
+<dialog class="Modal" id="subscribeModal">
+  <div class="dialog_content" id="formContainer">
+    <h3>Подписка</h3>
+    <form id="subForm">
+      <input type="email" id="emailInput" placeholder="Введите Email">
+      <button type="submit">Подписаться</button>
+    </form>
+    <p id="message"></p>
+  </div>
+</dialog>   
+<style>
+.error {
+  border: 2px solid red !important;
+  outline: none;
+}
+
+#subscribeModal {
+  padding: 0;
+  border: none;
+}
+
+#formContainer {
+  padding: 2rem;
+  background: white;
+}
+</style>
+
+<script>
+const subModal = document.querySelector('#subscribeModal');
+const subForm = document.querySelector('#subForm');
+const emailInput = document.querySelector('#emailInput');
+const openFormBtn = document.querySelector('#openForm');
+
+openFormBtn.onclick = () => subModal.showModal();
+
+// Закрытие по клику на оверлей
+subModal.addEventListener('click', () => {
+  subModal.close();
+});
+
+// stopPropagation для контейнера формы 
+document.querySelector('#formContainer').addEventListener('click', (e) => {
+  e.stopPropagation(); 
+});
+
+subForm.onsubmit = (e) => {
+  e.preventDefault();
+
+  if (emailInput.value.trim() === "") {
+    emailInput.classList.add('error');
+    alert("Заполните поле!");
+  } else {
+    emailInput.classList.remove('error');
+    alert("Успех!");
+    subModal.close();
+    subForm.reset();
+  }
+};
+</script>
